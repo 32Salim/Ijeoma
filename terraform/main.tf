@@ -1,7 +1,5 @@
 provider "aws" {
-  region     = "us-east-1"
-  access_key = "AKIAUVW3VNQ6BGHGKMV4"
-  secret_key = "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"
+  region = "us-east-1"
 }
 
 resource "aws_vpc" "main" {
@@ -34,7 +32,7 @@ resource "aws_subnet" "mainb" {
 resource "aws_instance" "Instance" {
   ami           = "ami-04505e74c0741db8d"
   instance_type = "t2.micro"
-  subnet_id = aws_subnet.main.id
+  subnet_id     = aws_subnet.main.id
 
   tags = {
     Name = "Safari"
@@ -44,7 +42,7 @@ resource "aws_instance" "Instance" {
 resource "aws_instance" "Instanceb" {
   ami           = "ami-04505e74c0741db8d"
   instance_type = "t2.micro"
-  subnet_id = aws_subnet.mainb.id
+  subnet_id     = aws_subnet.mainb.id
 
   tags = {
     Name = "Oasis"
